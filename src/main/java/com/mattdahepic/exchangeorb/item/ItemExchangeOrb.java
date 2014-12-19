@@ -16,6 +16,6 @@ public class ItemExchangeOrb extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-        this.itemIcon = iconRegister.registerIcon("exchangeorb:exchangeOrb");
+        this.itemIcon = iconRegister.registerIcon("exchangeorb:itemExchangeOrb");
     }
 }

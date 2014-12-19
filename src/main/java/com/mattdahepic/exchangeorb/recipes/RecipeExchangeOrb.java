@@ -2,6 +2,7 @@ package com.mattdahepic.exchangeorb.recipes;
 
 import com.mattdahepic.exchangeorb.ExchangeOrb;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -11,44 +12,39 @@ public class RecipeExchangeOrb {
     }
     public static void registerRecipe () {
         GameRegistry.addShapedRecipe(new ItemStack(ExchangeOrb.itemExchangeOrb,1),getRecipe());
-        GameRegistry.addShapedRecipe(new ItemStack(ExchangeOrb.itemExchangeOrb,1),getRecipeFlipped());
     }
     private static Object[] getRecipe () {
-        ItemStack glowstoneDust = new ItemStack(Items.glowstone_dust); //x
-        ItemStack redstoneDust = new ItemStack(Items.redstone); //y
-        ItemStack diamond = new ItemStack(Items.diamond); //z
-        String row1 = "yxy";
-        String row2 = "xzx";
-        String row3 = "yxy";
-        Object[] recipe = new Object[9];
+        ItemStack charcoal = new ItemStack(Items.coal,1,1); //a
+        ItemStack coal = new ItemStack(Items.coal,1); //b
+        ItemStack iron = new ItemStack(Items.iron_ingot,1); //c
+        ItemStack gold = new ItemStack(Items.gold_ingot,1); //d
+        ItemStack redstone = new ItemStack(Items.redstone,1); //e
+        ItemStack lapis = new ItemStack(Items.dye,1,4); //f
+        ItemStack stone = new ItemStack(Blocks.stone,1); //g
+        ItemStack diamond = new ItemStack(Items.diamond,1); //h
+        String row1 = "abc";
+        String row2 = "hgh";
+        String row3 = "def";
+        Object[] recipe = new Object[19];
         recipe[0] = row1;
         recipe[1] = row2;
         recipe[2] = row3;
-        recipe[3] = 'x';
-        recipe[4] = glowstoneDust;
-        recipe[5] = 'y';
-        recipe[6] = redstoneDust;
-        recipe[7] = 'z';
-        recipe[8] = diamond;
-        return recipe;
-    }
-    private static Object[] getRecipeFlipped () {
-        ItemStack glowstoneDust = new ItemStack(Items.glowstone_dust); //x
-        ItemStack redstoneDust = new ItemStack(Items.redstone); //y
-        ItemStack diamond = new ItemStack(Items.diamond); //z
-        String row1 = "xyx";
-        String row2 = "yzy";
-        String row3 = "xyx";
-        Object[] recipe = new Object[9];
-        recipe[0] = row1;
-        recipe[1] = row2;
-        recipe[2] = row3;
-        recipe[3] = 'x';
-        recipe[4] = glowstoneDust;
-        recipe[5] = 'y';
-        recipe[6] = redstoneDust;
-        recipe[7] = 'z';
-        recipe[8] = diamond;
+        recipe[3] = 'a';
+        recipe[4] = charcoal;
+        recipe[5] = 'b';
+        recipe[6] = coal;
+        recipe[7] = 'c';
+        recipe[8] = iron;
+        recipe[9] = 'd';
+        recipe[10] = gold;
+        recipe[11] = 'e';
+        recipe[12] = redstone;
+        recipe[13] = 'f';
+        recipe[14] = lapis;
+        recipe[15] = 'g';
+        recipe[16] = stone;
+        recipe[17] = 'h';
+        recipe[18] = diamond;
         return recipe;
     }
 }
