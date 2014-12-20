@@ -19,5 +19,6 @@ public class CommonProxy {
         GoldDiamond.registerRecipe();
         IronRedstone.registerRecipe();
         GoldLapis.registerRecipes();
+        DiamondEmerald.registerRecipes();
     }
 }

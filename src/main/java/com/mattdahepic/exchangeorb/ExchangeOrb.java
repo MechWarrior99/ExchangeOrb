@@ -36,6 +36,6 @@ public class ExchangeOrb {
     }
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
+        System.out.println("[Exchange Orb] Ready to transmute!");
     }
 }
