@@ -22,10 +22,11 @@ public class RecipeExchangeOrb {
         ItemStack lapis = new ItemStack(Items.dye,1,4); //f
         ItemStack stone = new ItemStack(Blocks.stone,1); //g
         ItemStack diamond = new ItemStack(Items.diamond,1); //h
+        ItemStack emerald = new ItemStack(Items.emerald,1); //i
         String row1 = "abc";
-        String row2 = "hgh";
+        String row2 = "hgi";
         String row3 = "def";
-        Object[] recipe = new Object[19];
+        Object[] recipe = new Object[21];
         recipe[0] = row1;
         recipe[1] = row2;
         recipe[2] = row3;
@@ -45,6 +46,8 @@ public class RecipeExchangeOrb {
         recipe[16] = stone;
         recipe[17] = 'h';
         recipe[18] = diamond;
+        recipe[19] = 'i';
+        recipe[20] = emerald;
         return recipe;
     }
 }

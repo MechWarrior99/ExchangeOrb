@@ -3,6 +3,7 @@ package com.mattdahepic.exchangeorb.item;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 public class ItemExchangeOrb extends Item {
@@ -10,6 +11,7 @@ public class ItemExchangeOrb extends Item {
         super();
         this.setUnlocalizedName("exchangeOrb");
         this.setMaxStackSize(1);
+        this.setCreativeTab(CreativeTabs.tabAllSearch);
         //TODO: creative tabs
     }
 
