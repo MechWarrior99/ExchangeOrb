@@ -3,7 +3,7 @@
   "modid": "exchangeorb",
   "name": "Exchange Orb",
   "description": "Simple mod for converting various vanilla resources.",
-  "version": "v1.3",
+  "version": "v1.5",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",

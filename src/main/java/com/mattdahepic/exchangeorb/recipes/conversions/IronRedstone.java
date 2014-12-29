@@ -1,40 +1,38 @@
 package com.mattdahepic.exchangeorb.recipes.conversions;
 
 import com.mattdahepic.exchangeorb.ExchangeOrb;
+import com.mattdahepic.exchangeorb.config.Config;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class IronRedstone {
-    public IronRedstone() {
-
-    }
+    public static final int xRedstone = Config.xRedstone;
+    public static final int ironPerXRedstone = Config.ironPerXRedstone;
+    public IronRedstone() {}
     public static void registerRecipe () {
-        //1 iron for 8 redstone
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.redstone, 8), getRecipeTo());
-        //8 redstone for 1 iron
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.iron_ingot,1),getRecipeFrom());
+        //iron to redstone
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.redstone,xRedstone), getRecipeTo());
+        //redstone to iron
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.iron_ingot,ironPerXRedstone),getRecipeFrom());
     }
     private static Object[] getRecipeTo () {
         ItemStack iron = new ItemStack(Items.iron_ingot,1);
-        Object[] recipe = new Object[2];
+        Object[] recipe = new Object[ironPerXRedstone+1];
         recipe[0] = new ItemStack(ExchangeOrb.itemExchangeOrb.setContainerItem(ExchangeOrb.itemExchangeOrb),1);
-        recipe[1] = iron;
+        for (int i = 1; i <= ironPerXRedstone; i++) {
+            recipe[i] = iron;
+        }
         return recipe;
     }
 
     private static Object[] getRecipeFrom () {
         ItemStack redstone = new ItemStack(Items.redstone,1);
-        Object[] recipe = new Object[9];
+        Object[] recipe = new Object[xRedstone+1];
         recipe[0] = new ItemStack(ExchangeOrb.itemExchangeOrb.setContainerItem(ExchangeOrb.itemExchangeOrb),1);
-        recipe[1] = redstone;
-        recipe[2] = redstone;
-        recipe[3] = redstone;
-        recipe[4] = redstone;
-        recipe[5] = redstone;
-        recipe[6] = redstone;
-        recipe[7] = redstone;
-        recipe[8] = redstone;
+        for (int i = 1; i <= xRedstone; i++) {
+            recipe[i] = redstone;
+        }
         return recipe;
     }
 }

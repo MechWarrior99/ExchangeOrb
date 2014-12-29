@@ -7,9 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class RecipeExchangeOrb {
-    public RecipeExchangeOrb () {
-
-    }
+    public RecipeExchangeOrb () {}
     public static void registerRecipe () {
         GameRegistry.addShapedRecipe(new ItemStack(ExchangeOrb.itemExchangeOrb,1),getRecipe());
     }

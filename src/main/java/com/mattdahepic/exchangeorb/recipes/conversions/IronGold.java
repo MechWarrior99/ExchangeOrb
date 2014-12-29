@@ -1,40 +1,38 @@
 package com.mattdahepic.exchangeorb.recipes.conversions;
 
 import com.mattdahepic.exchangeorb.ExchangeOrb;
+import com.mattdahepic.exchangeorb.config.Config;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class IronGold {
-    public IronGold() {
-
-    }
+    public static final int xGold = Config.xGold;
+    public static final int ironPerXGold = Config.ironPerXGold;
+    public IronGold() {}
     public static void registerRecipe () {
-        //8 iron for 1 gold
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.gold_ingot,1), getRecipeTo());
-        //1 gold for 8 iron
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.iron_ingot,8),getRecipeFrom());
+        //iron to gold
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.gold_ingot,xGold), getRecipeTo());
+        //gold to iron
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.iron_ingot,ironPerXGold),getRecipeFrom());
     }
     private static Object[] getRecipeTo () {
         ItemStack iron = new ItemStack(Items.iron_ingot,1);
-        Object[] recipe = new Object[9];
+        Object[] recipe = new Object[ironPerXGold+1];
         recipe[0] = new ItemStack(ExchangeOrb.itemExchangeOrb.setContainerItem(ExchangeOrb.itemExchangeOrb),1);
-        recipe[1] = iron;
-        recipe[2] = iron;
-        recipe[3] = iron;
-        recipe[4] = iron;
-        recipe[5] = iron;
-        recipe[6] = iron;
-        recipe[7] = iron;
-        recipe[8] = iron;
+        for (int i = 1; i <= ironPerXGold; i++) {
+            recipe[i] = iron;
+        }
         return recipe;
     }
 
     private static Object[] getRecipeFrom () {
         ItemStack gold = new ItemStack(Items.gold_ingot,1);
-        Object[] recipe = new Object[2];
+        Object[] recipe = new Object[xGold+1];
         recipe[0] = new ItemStack(ExchangeOrb.itemExchangeOrb.setContainerItem(ExchangeOrb.itemExchangeOrb),1);
-        recipe[1] = gold;
+        for (int i = 1; i <= xGold; i++) {
+            recipe[i] = gold;
+        }
         return recipe;
     }
 }

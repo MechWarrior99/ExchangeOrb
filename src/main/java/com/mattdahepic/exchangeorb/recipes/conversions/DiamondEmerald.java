@@ -1,32 +1,37 @@
 package com.mattdahepic.exchangeorb.recipes.conversions;
 
 import com.mattdahepic.exchangeorb.ExchangeOrb;
+import com.mattdahepic.exchangeorb.config.Config;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class DiamondEmerald {
-    public DiamondEmerald () {
-
-    }
+    public static final int xEmeralds = Config.xEmeralds;
+    public static final int diamondsPerXEmeralds = Config.diamondsPerXEmeralds;
+    public DiamondEmerald () {}
     public static void registerRecipes () {
-        //2 diamond for 1 emerald
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.emerald,1),getRecipeTo());
+        //diamond to emerald
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.emerald,xEmeralds),getRecipeTo());
         //1 emerald for 2 diamonds
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.diamond,2),getRecipeFrom());
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.diamond,diamondsPerXEmeralds),getRecipeFrom());
     }
     private static Object[] getRecipeTo () {
         ItemStack diamond = new ItemStack(Items.diamond,1);
-        Object[] recipe = new Object[3];
+        Object[] recipe = new Object[diamondsPerXEmeralds+1];
         recipe[0] = new ItemStack(ExchangeOrb.itemExchangeOrb.setContainerItem(ExchangeOrb.itemExchangeOrb),1);
-        recipe[1] = diamond;
-        recipe[2] = diamond;
+        for (int i = 1; i <= diamondsPerXEmeralds; i++) {
+            recipe[i] = diamond;
+        }
         return recipe;
     }
     private static Object[] getRecipeFrom () {
-        Object[] recipe = new Object[2];
+        ItemStack emerald = new ItemStack(Items.emerald,1);
+        Object[] recipe = new Object[xEmeralds+1];
         recipe[0] = new ItemStack(ExchangeOrb.itemExchangeOrb.setContainerItem(ExchangeOrb.itemExchangeOrb),1);
-        recipe[1] = new ItemStack(Items.emerald,1);
+        for (int i = 1; i <= xEmeralds; i++) {
+            recipe[i] = emerald;
+        }
         return recipe;
     }
 }
